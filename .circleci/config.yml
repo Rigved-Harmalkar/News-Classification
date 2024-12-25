@@ -1,17 +1,17 @@
 version: 2.1
 
 workflows:
-      test-deploy:
-          jobs:
-            - test
+  test-deploy:
+    jobs:
+      - test
 
 jobs:
-    test:
-      docker:
-          - image: cimg/python:3.13.1
+  test:
+    docker:
+      - image: cimg/python:3.13.1
 
-      steps:
-          - checkout
-          - run: Run Python application
-          - command: |
-                  python app.py
+    steps:
+      - checkout
+      - run:
+          name: Run Python application
+          command: python app.py
